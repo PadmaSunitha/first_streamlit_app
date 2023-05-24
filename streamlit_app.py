@@ -61,12 +61,12 @@ if streamlit.button('Get Fruit List'):
    my_cnx.close()
    streamlit.dataframe(my_data_rows)
 
-
+mysqlex = """INSERT INTO fruit_load_list VALUES ( 'kiwi' )"""
       
 #Allow the end user to add a fruit to the list 
 def insert_row_snowflake(new_fruit):
    with my_cnx.cursor() as my_cur:
-        my_cur.execute ("INSERT INTO fruit_load_list VALUES ( ' "+new_fruit+" ' )")
+        my_cur.execute (mysqlex)
         return "Thanks for adding "+ new_fruit
          
          
